@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
         })
         this.data = _.groupBy(res[0], 'stakeholder_name');
         Object.keys(this.data).map(el => {
-          let temp: any[] = _.uniqBy(this.data[el], 'goal_id').map(el2 => { return { data: { label: el2.goal_name, owner: el2.goal_owner, createAt: el2.goal_date, goal_id: el2.goal_id, definition: el2.goal_definition }, children: this.data[el].filter(el3 => el3.goal_id == el2.goal_id).map(el4 => { return { data: { label: el4.milestone_name, owner: el4.milestone_owner, createAt: el4.milestone_date, milestone_id: el4.milestone_id, definition: el4.milestone_definition } } }) } })
+          let temp: any[] = _.uniqBy(this.data[el], 'goal_id').map(el2 => { return { data: { label: el2.goal_name, owner: el2.goal_owner, dueDate: el2.goal_end, goal_id: el2.goal_id, definition: el2.goal_definition }, children: this.data[el].filter(el3 => el3.goal_id == el2.goal_id).map(el4 => { return { data: { label: el4.milestone_name, owner: el4.milestone_owner, dueDate: el4.milestone_end, milestone_id: el4.milestone_id, definition: el4.milestone_definition } } }) } })
           this.tableData.push(<TreeNode>{
             label: el, data: { label: el },
             children:

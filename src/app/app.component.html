@@ -8,8 +8,8 @@
                   <th [ttSortableColumn]="'owner'">Owner
                       <p-treeTableSortIcon [field]="'owner'"></p-treeTableSortIcon>
                   </th>
-                  <th [ttSortableColumn]="'createAt'">Create At
-                      <p-treeTableSortIcon [field]="'createAt'"></p-treeTableSortIcon>
+                  <th [ttSortableColumn]="'dueDate'">Due
+                      <p-treeTableSortIcon [field]="'dueDate'"></p-treeTableSortIcon>
                   </th>
               </tr>
           </ng-template>
@@ -23,7 +23,7 @@
                       {{rowData.owner}}
                   </td>
                   <td>
-                      {{rowData.createAt | date:'shortDate'}}
+                      {{rowData.dueDate | date:'shortDate':'+08:00'}}
                   </td>
               </tr>
           </ng-template>
